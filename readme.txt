@@ -6,6 +6,7 @@ Tested up to: 3.9.2
 Stable tag: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: http://www.ryanwelcher.com/donate/
 
 Allows you to quickly add Google Analytics tracking code to your site.
 

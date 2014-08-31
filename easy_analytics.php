@@ -97,12 +97,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 		//setup the actions for the front end
 		$hook = ( isset( $settings['location'] ) && 'header' == $settings['location'] ) ? 'wp_head' : 'wp_footer';
 		add_action( $hook , array(  $this, 'ea_action_insert_bug' ) );
-		
-		//admin side
-		//--init the settings
-		//add_action('admin_init',array( &$this,'ea_action_init_settings') );
-		//--add the page to the admin area
-		//add_action('admin_menu',array( &$this, 'ea_action_init_plugin_page') );
+
 	}
 
 
@@ -117,11 +112,9 @@ class EasyAnalytics extends RW_Plugin_Base {
 	 */
 	function ea_action_run_upgrade_check() {
 
-		//temp
 		//delete_option( 'easy_analyics_version' );
-
 		//get the current version from site options
-		$current_version = get_option( 'easy_analyics_version');
+		$current_version = get_option( 'easy_analyics_version' );
 
 		//check against the current one
 		if( !$current_version || version_compare( $current_version, self::version, '<' ) ) {
@@ -158,20 +151,91 @@ class EasyAnalytics extends RW_Plugin_Base {
 	}
 
 
+	/**
+	 * setup for displaying the pointer dialogue box
+	 * most of this code was resued from a WPMU Dev tutorial
+	 * 
+	 * @link {http://premium.wpmudev.org/blog/using-wordpress-pointers-in-your-own-plugins/}
+	 */
+	function ea_action_admin_enqueue_scripts() {
+		// You might of course have other scripts enqueued here,
+		// for functionality other than WordPress Pointers.
+
+		// WordPress Pointer Handling
+		// find out which pointer ids this user has already seen 
+		$seen_it = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+
+		// at first assume we don't want to show pointers
+		$do_add_script = false;
+		
+		// Handle our first pointer announcing the plugin's new settings screen.
+		// check for dismissal of pksimplenote settings menu pointer 'pksn1'
+		if ( ! in_array( 'ea-settings-moved-info', $seen_it ) ) {
+			// flip the flag enabling pointer scripts and styles to be added later
+			$do_add_script = true;
+			// hook to function that will output pointer script just for pksn1
+			add_action( 'admin_print_footer_scripts', array( $this, 'ea_pointer_note_moved_footer_script' ) );
+		}
+
+		// now finally enqueue scripts and styles if we ended up with do_add_script == TRUE
+		if ( $do_add_script ) {
+			// add JavaScript for WP Pointers
+			wp_enqueue_script( 'wp-pointer' );
+			// add CSS for WP Pointers
+			wp_enqueue_style( 'wp-pointer' );
+		}
+	}
+
+	/**
+	 * Render the pointer on-screen
+	 *
+	 * Each pointer has its own function responsible for putting appropriate JavaScript into footer
+	 */
+	
+	function ea_pointer_note_moved_footer_script() {
+		// Build the main content of your pointer balloon in a variable
+		$pointer_content = __('<h3>Easy Analytics has moved!</h3>','ea'); // Title should be <h3> for proper formatting.
+		$pointer_content .= '<p>Configuration options are found under the Settings menu instead of Plugins. <a href="';
+		$pointer_content .= bloginfo( 'wpurl' );
+		$pointer_content .= '/wp-admin/options-general.php?page='.$this->_settings_page_name.'">Click here</a> to see the new settings options added with this version!</p>';
+
+		// In JavaScript below:
+		// 1. "#menu-plugins" needs to be the unique id of whatever DOM element in your HTML you want to attach your pointer balloon to.
+		// 2. "pksn1" needs to be the unique id, for internal use, of this pointer
+		// 3. "position" -- edge indicates which horizontal spot to hang on to; align indicates how to align with element vertically
+		?>
+		<script type="text/javascript">// <![CDATA[
+		jQuery(document).ready(function($) {
+			/* make sure pointers will actually work and have content */
+			if(typeof(jQuery().pointer) != 'undefined') {
+				$('#menu-settings').pointer({
+					content: '<?php echo $pointer_content; ?>',
+					position: {
+						edge: 'left',
+						align: 'center'
+					},
+					close: function() {
+						$.post( ajaxurl, {
+							pointer: 'ea-settings-moved-info',
+							action: 'dismiss-wp-pointer'
+						});
+					}
+				}).pointer('open');
+			}
+		});
+		// ]]></script>
+		<?php
+	}
+
 	
 	//=================
 	// FILTER CALLBACKS
 	//=================
 	
 
-
-
-
-
 	//=================
 	// UPGRADE SCRIPT
 	//=================
-	//
 
 	/**
 	 * Upgrade script for ver 3.2
@@ -180,7 +244,6 @@ class EasyAnalytics extends RW_Plugin_Base {
 	private function upgrade_to_3_2() {
 
 		//get the old options we want to keep
-		//
 		$tracking_num 	= get_option('ea_tracking_num');
 		$domain_name 	= get_option('ea_domain_name');
 
@@ -200,6 +263,9 @@ class EasyAnalytics extends RW_Plugin_Base {
 		//run a cleanup of old, deprecated settings
 		delete_option( 'ea_site_speed' );
 		delete_option( 'ea_site_speed_sr' );
+
+		//add the action to display the pointer for this update.
+		add_action( 'admin_enqueue_scripts', array( $this, 'ea_action_admin_enqueue_scripts' ) );
 	}
 
 
@@ -215,25 +281,25 @@ class EasyAnalytics extends RW_Plugin_Base {
 	 * @used-by register_activation_hook() in the parent class
 	 */
 	function rw_plugin_install() {
+		
+		//look for the settings
+		$settings = get_option($this->_settings_name);
 
-		if( $this->_has_settings_page ) {
+		if(!$settings) {
+			add_option( $this->_settings_name, $this->_default_settings );
+		}else{
 
-			//look for the settings
-			$settings = get_option($this->_settings_name);
-
-			if(!$settings) {
-				add_option( $this->_settings_name, $this->_default_settings );
+			if( isset( $_POST[$this->_settings_name] ) ) {
+				$updated_settings = wp_parse_args( $_POST[$this->_settings_name], $this->_default_settings );
 			}else{
-
-				if( isset( $_POST[$this->_settings_name] ) ) {
-					$updated_settings = wp_parse_args( $_POST[$this->_settings_name], $this->_default_settings );
-				}else{
-					$updated_settings = get_option( $this->_settings_name );
-				}
-				
-				update_option( $this->_settings_name, $updated_settings );
+				$updated_settings = get_option( $this->_settings_name );
 			}
+
+			update_option( $this->_settings_name, $updated_settings );
 		}
+
+		//update the version number
+		update_option( 'easy_analyics_version', self::version );
 	}
 	
 	

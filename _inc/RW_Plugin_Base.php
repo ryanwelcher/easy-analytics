@@ -107,8 +107,8 @@ abstract class RW_Plugin_Base {
 	function rw_plugin_settings_page() {
 		
 		add_options_page(
-			sprintf( __('%s', $this->_text_domain), $this->_settings_menu_title ),
-			sprintf( __('%s', $this->_text_domain), $this->_settings_menu_title ),
+			sprintf( __('%s', 'ea'), $this->_settings_menu_title ),
+			sprintf( __('%s', 'ea'), $this->_settings_menu_title ),
 			'manage_options',
 			$this->_pagename,
 			array( &$this, 'rw_plugin_render_settings_page')
@@ -169,10 +169,10 @@ abstract class RW_Plugin_Base {
       <table class="form-table">
       <tr>
       	<td>
-      	<input id="submit" class="button button-primary" type="submit" value="<?php _e('Save Changes',$this->_text_domain);?>" name="submit">
+      	<input id="submit" class="button button-primary" type="submit" value="<?php _e('Save Changes','ea');?>" name="submit">
          </td>
          <td>
-      	<input id="submit" class="button " type="submit" value="<?php _e('Reset To Defaults',$this->_text_domain);?>" name="reset">	
+      	<input id="submit" class="button " type="submit" value="<?php _e('Reset To Defaults','ea');?>" name="reset">	
          </td>
       </tr>
       </table>

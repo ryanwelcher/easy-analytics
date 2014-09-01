@@ -97,7 +97,6 @@ class EasyAnalytics extends RW_Plugin_Base {
 		//setup the actions for the front end
 		$hook = ( isset( $settings['location'] ) && 'header' == $settings['location'] ) ? 'wp_head' : 'wp_footer';
 		add_action( $hook , array(  $this, 'ea_action_insert_bug' ) );
-
 	}
 
 
@@ -112,7 +111,6 @@ class EasyAnalytics extends RW_Plugin_Base {
 	 */
 	function ea_action_run_upgrade_check() {
 
-		//delete_option( 'easy_analyics_version' );
 		//get the current version from site options
 		$current_version = get_option( 'easy_analyics_version' );
 
@@ -125,6 +123,8 @@ class EasyAnalytics extends RW_Plugin_Base {
 			//update the version number
 			update_option( 'easy_analyics_version', self::version );
 		}
+
+		
 	}
 
 	/**
@@ -194,10 +194,8 @@ class EasyAnalytics extends RW_Plugin_Base {
 	
 	function ea_pointer_note_moved_footer_script() {
 		// Build the main content of your pointer balloon in a variable
-		$pointer_content = __('<h3>Easy Analytics has moved!</h3>','ea'); // Title should be <h3> for proper formatting.
-		$pointer_content .= '<p>Configuration options are found under the Settings menu instead of Plugins. <a href="';
-		$pointer_content .= bloginfo( 'wpurl' );
-		$pointer_content .= '/wp-admin/options-general.php?page='.$this->_settings_page_name.'">Click here</a> to see the new settings options added with this version!</p>';
+		$pointer_content = __('<h3>Easy Analytics has moved!</h3>'); // Title should be <h3> for proper formatting.
+		$pointer_content .= sprintf( __('<p>Configuration options are now found under the <a href="%s"><b>Settings</b></a> menu instead of Plugins menu</p>'), admin_url( 'options-general.php?page='.$this->_settings_page_name ) );
 
 		// In JavaScript below:
 		// 1. "#menu-plugins" needs to be the unique id of whatever DOM element in your HTML you want to attach your pointer balloon to.
@@ -231,6 +229,14 @@ class EasyAnalytics extends RW_Plugin_Base {
 	//=================
 	// FILTER CALLBACKS
 	//=================
+	
+	/**
+	 * Filters the name of the settings page
+	 * uses the custom filter "mp_settings_page_title"
+	 */
+	function rw_settings_page_title_filter($title) {
+		return __('Easy Analytics Configuration');
+	}
 	
 
 	//=================
@@ -314,6 +320,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 	function rw_plugin_create_meta_boxes() {
 
 		//debug area
+		/*
 		add_meta_box(
 			'debug_area', //Meta box ID
 			__('Debug', 'ruc'), //Meta box Title
@@ -321,11 +328,12 @@ class EasyAnalytics extends RW_Plugin_Base {
         'settings_page_'.$this->_pagename, // Screen to which to add the meta box
         'side' // Context
     	);
+    	*/
 
     	//-- additional users to allow 
     	add_meta_box(
     		'easy_analytic_settings',
-    		__('Analytics Settings', 'ed'),
+    		__('Analytics Settings'),
     		array( $this, 'render_easy_analytics_settings_meta'),
     		'settings_page_'.$this->_pagename, // Screen to which to add the meta box
         	'normal' // Context
@@ -376,14 +384,14 @@ class EasyAnalytics extends RW_Plugin_Base {
 				$old_settings = get_option( $this->_settings_name );
 				$updated_settings = wp_parse_args( $_POST[$this->_settings_name], $old_settings );
 				update_option($this->_settings_name, $updated_settings);
-				printf('<div class="updated"> <p> %s </p> </div>', __('Settings Saved', 'ruc' ) );
+				printf('<div class="updated"> <p> %s </p> </div>', __('Settings Saved' ) );
 			}
 			
 			//reset
 			if( isset( $_POST['reset'] ) ) {
 				//status message
 				update_option($this->_settings_name, $this->_default_settings );
-				printf('<div class="error"> <p> %s </p> </div>', __('Settings reset to defaults', 'ruc') );
+				printf('<div class="error"> <p> %s </p> </div>', __('Settings reset to defaults') );
 			}
 		}
 	}

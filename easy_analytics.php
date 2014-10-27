@@ -4,7 +4,7 @@ Plugin Name: Easy Analytics
 Plugin URI: http://www.ryanwelcher.com/work/easy-analytics
 Description: Easily add your Google Analytics tracking snippet to your WordPress site.
 Author: Ryan Welcher
-Version: 3.2
+Version: 3.3
 Author URI: http://www.ryanwelcher.com
 Text Domain: ea
 Copyright 2011  Ryan Welcher  (email : me@ryanwelcher.com)
@@ -96,7 +96,9 @@ class EasyAnalytics extends RW_Plugin_Base {
 
 		//setup the actions for the front end
 		$hook = ( isset( $settings['location'] ) && 'header' == $settings['location'] ) ? 'wp_head' : 'wp_footer';
+
 		add_action( $hook , array(  $this, 'ea_action_insert_bug' ) );
+		
 	}
 
 
@@ -145,7 +147,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 
 		$template_path = plugin_dir_path( __FILE__ ) . '_views/'. $snippet_template;
 	
-		if( file_exists( $template_path  ) ) {
+		if( !is_user_logged_in() && file_exists( $template_path ) ) {
 			include $template_path;
 		}
 	}

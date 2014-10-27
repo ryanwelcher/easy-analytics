@@ -2,8 +2,8 @@
 Contributors: welcher
 Tags: stats tracking, analytics, Google Analytics
 Requires at least: 2.7
-Tested up to: 3.9.2
-Stable tag: 3.2
+Tested up to: 4.0
+Stable tag: 3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://www.ryanwelcher.com/donate/
@@ -21,6 +21,10 @@ Allows you to quickly add Google Analytics tracking code to your site. It's craz
 3. Add your tracking UA-XXXX number in the settings area
 
 == Changelog ==
+
+= 3.3 =
+
+* Snippet no longer loads for logged in users.
 
 = 3.2 =
 * This is a major update! 

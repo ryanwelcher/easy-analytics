@@ -22,8 +22,7 @@ Allows you to quickly add Google Analytics tracking code to your site. It's craz
 
 == Changelog ==
 
-= 3.4.1=
-
+= 3.4.1 =
 * Bux fix
 
 = 3.4 =

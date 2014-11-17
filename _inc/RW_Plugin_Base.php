@@ -154,7 +154,7 @@ abstract class RW_Plugin_Base {
 	function rw_add_default_meta_boxes() {
 		add_meta_box(
 			'save_settings', //Meta box ID
-			__('Save Settings'), //Meta box Title
+			__('Save Settings','easy-analytics'), //Meta box Title
         array(&$this, 'rw_render_save_setting_box'), //Callback defining the plugin's innards
         'settings_page_'.$this->_pagename, // Screen to which to add the meta box
         'side' // Context
@@ -169,10 +169,10 @@ abstract class RW_Plugin_Base {
       <table class="form-table">
       <tr>
       	<td>
-      	<input id="submit" class="button button-primary" type="submit" value="<?php _e('Save Changes','ea');?>" name="submit">
+      	<input id="submit" class="button button-primary" type="submit" value="<?php _e('Save Changes','easy-analytics');?>" name="submit">
          </td>
          <td>
-      	<input id="submit" class="button " type="submit" value="<?php _e('Reset To Defaults','ea');?>" name="reset">	
+      	<input id="submit" class="button " type="submit" value="<?php _e('Reset To Defaults','easy-analytics');?>" name="reset">
          </td>
       </tr>
       </table>

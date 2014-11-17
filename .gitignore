@@ -41,3 +41,4 @@ Thumbs.db
 .sass-cache
 
 /releases/
+node_modules

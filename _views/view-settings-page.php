@@ -1,6 +1,5 @@
 <?php do_action("{$this->_pagename}_plugin_save_options"); ?>
 <div class="wrap">
-    <?php screen_icon(); ?>
     <h2><?php esc_html_e( apply_filters("{$this->_pagename}_settings_page_title", 'Plugin Page Title') ); ?></h2>
     <form name="my_form" method="post">
         <input type="hidden" name="action" value="some-action">
@@ -12,11 +11,7 @@
         <div id="poststuff">
  
             <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
- 
-                <div id="post-body-content">
-                    <!-- #post-body-content -->
-                </div>
- 
+
                 <div id="postbox-container-1" class="postbox-container">
                     <?php do_meta_boxes('','side',null); ?>
                 </div>

@@ -1,0 +1,162 @@
+# Copyright (C) 2014 Ryan Welcher
+# This file is distributed under the same license as the Easy Analytics package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Analytics 3.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/easy_analytics\n"
+"POT-Creation-Date: 2014-11-16 22:06-0500\n"
+"PO-Revision-Date: 2014-11-16 22:23-0500\n"
+"Last-Translator: Ryan Welcher <me@ryanwelcher.com>\n"
+"Language-Team: \n"
+"Language: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: easy_analytics.php:88
+msgid "Easy Analytics"
+msgstr "Easy Analytics"
+
+#: easy_analytics.php:199
+msgid "<h3>Easy Analytics has moved!</h3>"
+msgstr "<h3> Easy Analytics a déménagé! </ h3>"
+
+#: easy_analytics.php:200
+#, php-format
+msgid ""
+"<p>Configuration options are now found under the <a href=\"%s\"><b>Settings</"
+"b></a> menu instead of Plugins menu</p>"
+msgstr ""
+"<p> Les options de configuration sont maintenant disponibles sous la <a href="
+"\"%s\"> <b> Paramètres </ b> </a> menu au lieu de menu Extensions </ p>"
+
+#: easy_analytics.php:240
+msgid "Easy Analytics Configuration"
+msgstr "Configuration Easy Analytics"
+
+#: easy_analytics.php:338
+msgid "Analytics Settings"
+msgstr "Paramètres Analytics"
+
+#: easy_analytics.php:389
+msgid "Settings Saved"
+msgstr "Les paramètres enregistrés"
+
+#: easy_analytics.php:396
+msgid "Settings reset to defaults"
+msgstr "Paramètres réinitialisés aux valeurs"
+
+#: _inc/RW_Plugin_Base.php:93
+msgid "Settings"
+msgstr "paramètres"
+
+#: _inc/RW_Plugin_Base.php:110 _inc/RW_Plugin_Base.php:111
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: _inc/RW_Plugin_Base.php:157
+msgid "Save Settings"
+msgstr "Enregistrer"
+
+#: _inc/RW_Plugin_Base.php:172
+msgid "Save Changes"
+msgstr "Enregistrer"
+
+#: _inc/RW_Plugin_Base.php:175
+msgid "Reset To Defaults"
+msgstr "remettre"
+
+#: _views/easy-analytics-settings.php:4
+msgid "Tracking ID"
+msgstr "Numéro de suivi"
+
+#: _views/easy-analytics-settings.php:12
+msgid "Snippet Type"
+msgstr "type de snippet"
+
+#: _views/easy-analytics-settings.php:15
+msgid "Universal"
+msgstr "universel"
+
+#: _views/easy-analytics-settings.php:16
+msgid "Legacy"
+msgstr "héritage"
+
+#: _views/easy-analytics-settings.php:21
+msgid "Snippet Location"
+msgstr "Lieu d'extraits"
+
+#: _views/easy-analytics-settings.php:24
+msgid "Header"
+msgstr "header"
+
+#: _views/easy-analytics-settings.php:25
+msgid "Footer"
+msgstr "Pied de page"
+
+#: _views/easy-analytics-settings.php:26
+msgid ""
+"Google recommends putting the snippet in your header but you can choose to "
+"override that here."
+msgstr ""
+"Google recommande de mettre l'extrait dans votre tête, mais vous pouvez "
+"choisir de remplacer ici."
+
+#: _views/easy-analytics-settings.php:31
+msgid "Use Enhanced Link Attribution"
+msgstr "Utilisation accrue Attribution de lien"
+
+#: _views/easy-analytics-settings.php:34
+msgid "Yes"
+msgstr "Oui"
+
+#: _views/easy-analytics-settings.php:35
+msgid "No"
+msgstr "No"
+
+#: _views/easy-analytics-settings.php:36
+msgid ""
+"You will need to enable <em>enhanced link attribution</em> in your property "
+"settings for this tracking id in your Google Analytics account."
+msgstr ""
+"Vous devez activer <em> amélioré lien attribution </ em> dans vos paramètres "
+"de propriété pour l'identifiant de suivi dans votre compte Google Analytics."
+
+#: _views/easy-analytics-settings.php:40
+msgid "_setDomain"
+msgstr "_setDomain"
+
+#: node_modules/grunt-wp-i18n/test/fixtures/basic-theme/exclude/file.php:3
+#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/plugin-include.php:6
+msgid "Exclude"
+msgstr "exclure"
+
+#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/include/file.php:2
+msgid "Include"
+msgstr "nclure"
+
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/add-domain.php:2
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:2
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:3
+msgid "String"
+msgstr "chaîne"
+
+#~ msgid "http://www.ryanwelcher.com/work/easy-analytics"
+#~ msgstr "http://www.ryanwelcher.com/work/easy-analytics"
+
+#~ msgid ""
+#~ "Easily add your Google Analytics tracking snippet to your WordPress site."
+#~ msgstr ""
+#~ "Ajoutez facilement votre extrait de suivi Google Analytics sur votre site "
+#~ "WordPress."
+
+#~ msgid "Ryan Welcher"
+#~ msgstr "Ryan Welcher"
+
+#~ msgid "http://www.ryanwelcher.com"
+#~ msgstr "http://www.ryanwelcher.com"

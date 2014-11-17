@@ -1,0 +1,112 @@
+# Copyright (C) 2014 Ryan Welcher
+# This file is distributed under the same license as the Easy Analytics package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Analytics 3.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/easy_analytics\n"
+"POT-Creation-Date: 2014-11-17 02:51:15+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: _inc/RW_Plugin_Base.php:93
+msgid "Settings"
+msgstr ""
+
+#: _inc/RW_Plugin_Base.php:110 _inc/RW_Plugin_Base.php:111
+msgid "%s"
+msgstr ""
+
+#: _inc/RW_Plugin_Base.php:157
+msgid "Save Settings"
+msgstr ""
+
+#: _inc/RW_Plugin_Base.php:172
+msgid "Save Changes"
+msgstr ""
+
+#: _inc/RW_Plugin_Base.php:175
+msgid "Reset To Defaults"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:4
+msgid "Tracking ID"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:12
+msgid "Snippet Type"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:21
+msgid "Snippet Location"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:26
+msgid ""
+"Google recommends putting the snippet in your header but you can choose to "
+"override that here."
+msgstr ""
+
+#: _views/easy-analytics-settings.php:31
+msgid "Use Enhanced Link Attribution"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:36
+msgid ""
+"You will need to enable <em>enhanced link attribution</em> in your property "
+"settings for this tracking id in your Google Analytics account."
+msgstr ""
+
+#: _views/easy-analytics-settings.php:40
+msgid "_setDomain"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Easy Analytics"
+msgstr ""
+
+#: easy_analytics.php:199
+msgid "<h3>Easy Analytics has moved!</h3>"
+msgstr ""
+
+#: easy_analytics.php:200
+msgid ""
+"<p>Configuration options are now found under the <a "
+"href=\"%s\"><b>Settings</b></a> menu instead of Plugins menu</p>"
+msgstr ""
+
+#: easy_analytics.php:240
+msgid "Easy Analytics Configuration"
+msgstr ""
+
+#: easy_analytics.php:338
+msgid "Analytics Settings"
+msgstr ""
+
+#: easy_analytics.php:389
+msgid "Settings Saved"
+msgstr ""
+
+#: easy_analytics.php:396
+msgid "Settings reset to defaults"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.ryanwelcher.com/work/easy-analytics"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Easily add your Google Analytics tracking snippet to your WordPress site."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Ryan Welcher"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.ryanwelcher.com"
+msgstr ""

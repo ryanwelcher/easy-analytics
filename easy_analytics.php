@@ -6,7 +6,7 @@ Description: Easily add your Google Analytics tracking snippet to your WordPress
 Author: Ryan Welcher
 Version: 3.3
 Author URI: http://www.ryanwelcher.com
-Text Domain: ea
+Text Domain: easy-analytics
 Copyright 2011  Ryan Welcher  (email : me@ryanwelcher.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -36,7 +36,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 	/**
 	 * @var string plugin version number
 	 */
-	const version = '3.2';
+	const version = '3.3';
 
 
 	/**
@@ -85,7 +85,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 		parent::__construct( __FILE__, $this->_has_settings_page, $this->_settings_page_name );
 		
 		//set some details
-		$this->_settings_menu_title = __('Easy Analytics');
+		$this->_settings_menu_title = __('Easy Analytics', 'easy-analytics');
 
 
 		//--Start your custom goodness
@@ -126,8 +126,8 @@ class EasyAnalytics extends RW_Plugin_Base {
 			update_option( 'easy_analyics_version', self::version );
 		}
 
-		
-	}
+		load_plugin_textdomain('easy-analytics', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+}
 
 	/**
 	 * methods that outputs the actual GA snippet
@@ -237,7 +237,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 	 * uses the custom filter "mp_settings_page_title"
 	 */
 	function rw_settings_page_title_filter($title) {
-		return __('Easy Analytics Configuration');
+		return __('Easy Analytics Configuration', 'easy-analytics');
 	}
 	
 
@@ -386,14 +386,14 @@ class EasyAnalytics extends RW_Plugin_Base {
 				$old_settings = get_option( $this->_settings_name );
 				$updated_settings = wp_parse_args( $_POST[$this->_settings_name], $old_settings );
 				update_option($this->_settings_name, $updated_settings);
-				printf('<div class="updated"> <p> %s </p> </div>', __('Settings Saved' ) );
+				printf('<div class="updated"> <p> %s </p> </div>', __('Settings Saved','easy-analytics' ) );
 			}
 			
 			//reset
 			if( isset( $_POST['reset'] ) ) {
 				//status message
 				update_option($this->_settings_name, $this->_default_settings );
-				printf('<div class="error"> <p> %s </p> </div>', __('Settings reset to defaults') );
+				printf('<div class="error"> <p> %s </p> </div>', __('Settings reset to defaults','easy-analytics') );
 			}
 		}
 	}

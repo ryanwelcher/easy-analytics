@@ -4,7 +4,7 @@ Plugin Name: Easy Analytics
 Plugin URI: http://www.ryanwelcher.com/work/easy-analytics
 Description: Easily add your Google Analytics tracking snippet to your WordPress site.
 Author: Ryan Welcher
-Version: 3.3
+Version: 3.4
 Author URI: http://www.ryanwelcher.com
 Text Domain: easy-analytics
 Copyright 2011  Ryan Welcher  (email : me@ryanwelcher.com)
@@ -36,7 +36,7 @@ class EasyAnalytics extends RW_Plugin_Base {
 	/**
 	 * @var string plugin version number
 	 */
-	const version = '3.3';
+	const version = '3.4';
 
 
 	/**

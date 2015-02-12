@@ -2,8 +2,8 @@
 Contributors: welcher
 Tags: stats tracking, analytics, Google Analytics
 Requires at least: 2.7
-Tested up to: 4.0
-Stable tag: 3.4.1
+Tested up to: 4.2 alpha
+Stable tag: 3.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://www.ryanwelcher.com/donate/
@@ -21,6 +21,10 @@ Allows you to quickly add Google Analytics tracking code to your site. It's craz
 3. Add your tracking UA-XXXX number in the settings area
 
 == Changelog ==
+= 3.4.2 =
+
+* WordPress Coding Standards Update
+* Compatibility check with 4.2 alpha
 
 = 3.4.1 =
 * Bux fix

@@ -2,7 +2,7 @@
 Contributors: welcher
 Tags: stats tracking, analytics, Google Analytics
 Requires at least: 2.7
-Tested up to: 4.2 alpha
+Tested up to: 4.6 alpha
 Stable tag: 3.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

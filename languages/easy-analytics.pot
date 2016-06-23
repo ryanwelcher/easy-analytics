@@ -1,14 +1,14 @@
-# Copyright (C) 2014 Ryan Welcher
+# Copyright (C) 2016 Ryan Welcher
 # This file is distributed under the same license as the Easy Analytics package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Easy Analytics 3.3\n"
+"Project-Id-Version: Easy Analytics 3.4.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/easy_analytics\n"
-"POT-Creation-Date: 2014-11-17 02:51:15+00:00\n"
+"POT-Creation-Date: 2016-06-23 03:15:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -41,8 +41,24 @@ msgstr ""
 msgid "Snippet Type"
 msgstr ""
 
+#: _views/easy-analytics-settings.php:15
+msgid "Universal"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:16
+msgid "Legacy"
+msgstr ""
+
 #: _views/easy-analytics-settings.php:21
 msgid "Snippet Location"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:24
+msgid "Header"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:25
+msgid "Footer"
 msgstr ""
 
 #: _views/easy-analytics-settings.php:26
@@ -53,6 +69,14 @@ msgstr ""
 
 #: _views/easy-analytics-settings.php:31
 msgid "Use Enhanced Link Attribution"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:34
+msgid "Yes"
+msgstr ""
+
+#: _views/easy-analytics-settings.php:35
+msgid "No"
 msgstr ""
 
 #: _views/easy-analytics-settings.php:36
@@ -69,29 +93,33 @@ msgstr ""
 msgid "Easy Analytics"
 msgstr ""
 
-#: easy_analytics.php:199
+#: easy_analytics.php:201
 msgid "<h3>Easy Analytics has moved!</h3>"
 msgstr ""
 
-#: easy_analytics.php:200
+#: easy_analytics.php:202
 msgid ""
 "<p>Configuration options are now found under the <a "
 "href=\"%s\"><b>Settings</b></a> menu instead of Plugins menu</p>"
 msgstr ""
 
-#: easy_analytics.php:240
+#: easy_analytics.php:243
 msgid "Easy Analytics Configuration"
 msgstr ""
 
-#: easy_analytics.php:338
+#: easy_analytics.php:328
+msgid "Debug"
+msgstr ""
+
+#: easy_analytics.php:339
 msgid "Analytics Settings"
 msgstr ""
 
-#: easy_analytics.php:389
+#: easy_analytics.php:390
 msgid "Settings Saved"
 msgstr ""
 
-#: easy_analytics.php:396
+#: easy_analytics.php:397
 msgid "Settings reset to defaults"
 msgstr ""
 
